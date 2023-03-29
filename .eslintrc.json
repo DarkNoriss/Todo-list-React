@@ -4,18 +4,14 @@
     "es2021": true
   },
   "plugins": ["react"],
-  "extends": [
-    "google",
-    "prettier",
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["google", "prettier", "eslint:recommended", "plugin:react/recommended"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
-    "require-jsdoc": 0
+    "require-jsdoc": 0,
+    "react/prop-types": 0
   }
 }
