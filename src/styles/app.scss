@@ -31,7 +31,7 @@
   & .tasks-container {
     flex: 1;
     background-color: $grid-bgcolor;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 20px;
 
     & .tasks-list {
