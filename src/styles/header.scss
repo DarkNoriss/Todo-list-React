@@ -1,4 +1,8 @@
+@import "../styles/variable.scss";
+
 .header {
+  background-color: $hf-bgcolor;
+
   h1 {
     text-align: center;
     margin: 0;
