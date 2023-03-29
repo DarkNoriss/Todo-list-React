@@ -1,1 +1,33 @@
 @import "../styles/variable.scss";
+
+.task {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: $task-color; /* set desired background color */
+
+  & h2.task-name {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  & p.task-description {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+
+  & label.task-done {
+    display: flex;
+    align-items: center;
+  }
+
+  & input.done-checkbox {
+    margin-right: 10px;
+  }
+}
