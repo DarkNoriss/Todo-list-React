@@ -7,7 +7,7 @@ import "../styles/app.scss";
 import { useEffect } from "react";
 
 export const App = () => {
-  const [tasks, setTasks] = useState(loadData() || []);
+  const [tasks, setTasks] = useState(() => loadData() || []);
 
   useEffect(() => {
     saveData(tasks);
@@ -32,9 +32,9 @@ export const App = () => {
   };
 
   // use for showTask button to show tasks array in console
-  const showTasks = () => {
-    console.log(tasks);
-  };
+  // const showTasks = () => {
+  //   console.log(tasks);
+  // };
 
   const createTask = tasks.map((task) => {
     return <Task key={task.id} name={task.name} desc={task.desc} done={task.done} />;
