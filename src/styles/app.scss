@@ -32,7 +32,13 @@
     flex: 1;
     background-color: $grid-bgcolor;
     overflow-y: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
     padding: 20px;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     & .tasks-list {
       display: flex;
@@ -40,6 +46,24 @@
       align-items: flex-start;
       justify-content: center;
       gap: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    & .nav-bar {
+      max-width: 100px;
+
+      & button {
+        height: 100px;
+      }
+    }
+
+    & .tasks-container {
+      & .tasks-list {
+        justify-content: space-evenly;
+      }
     }
   }
 }
