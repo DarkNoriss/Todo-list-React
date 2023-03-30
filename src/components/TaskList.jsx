@@ -23,7 +23,7 @@ const Task = ({ task, handleTaskDone }) => {
   const handleToggle = () => setChecked(!getChecked);
 
   return (
-    <div className="task" data-task-id={task.id}>
+    <div className="task">
       <h2>{task.name}</h2>
       <p>{task.desc}</p>
       <div className="done">
