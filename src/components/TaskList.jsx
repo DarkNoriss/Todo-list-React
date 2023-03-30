@@ -18,6 +18,8 @@ const Task = ({ task, handleTaskDone }) => {
     handleTaskDone(task.id, checked);
   }, [checked]);
 
+  const handleToggle = () => setChecked(!checked);
+
   return (
     <div className="task" data-task-id={task.id}>
       <h2>{task.name}</h2>
@@ -28,11 +30,9 @@ const Task = ({ task, handleTaskDone }) => {
           id="checkbox"
           className="done-checkbox"
           checked={checked}
-          onChange={() => setChecked(!checked)}
+          onChange={handleToggle}
         />
-        <label className="task-done" htmlFor="checkbox">
-          Done
-        </label>
+        <p>Done</p>
       </div>
     </div>
   );

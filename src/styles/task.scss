@@ -1,7 +1,7 @@
 @import "../styles/variable.scss";
 
 .task {
-  height: 200px;
+  height: 300px;
   width: 200px;
   display: flex;
   flex-direction: column;
@@ -33,5 +33,9 @@
     display: flex;
     align-items: center;
     gap: 5px;
+
+    & p {
+      margin: 0;
+    }
   }
 }
