@@ -2,4 +2,4 @@
 
 Remake of my old todo-list app using React
 
-<a href = "https://darknoriss.github.io/WeatherApp/"/> DEMO </a>
+<a href = "https://darknoriss.github.io/Todo-list-React/"/> DEMO </a>
