@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import uuidv4 from "uuid/v4";
 import { faker } from "@faker-js/faker";
 import { Header } from "./Header";
@@ -10,10 +10,10 @@ import "../styles/app.scss";
 
 export const App = () => {
   const [tasks, setTasks] = useState(() => loadData());
-  const [init, setInit] = useState(() => true);
+  const init = useRef(() => true);
 
   useEffect(() => {
-    if (init) return setInit(!init);
+    if (init) return !init;
     saveData(tasks);
   }, [tasks]);
 

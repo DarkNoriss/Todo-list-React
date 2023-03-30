@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../styles/task.scss";
 
 export const TaskList = ({ tasks, handleTaskDone }) => {
@@ -13,10 +13,10 @@ export const TaskList = ({ tasks, handleTaskDone }) => {
 
 const Task = ({ task, handleTaskDone }) => {
   const [checked, setChecked] = useState(() => task.done);
-  const [init, setInit] = useState(() => true);
+  const init = useRef(() => true);
 
   useEffect(() => {
-    if (init) return setInit(!init);
+    if (init) return !init;
     handleTaskDone(task.id, checked);
   }, [checked]);
 
