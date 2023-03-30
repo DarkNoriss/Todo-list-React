@@ -1,21 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Header } from "./Header";
 import { Footer } from "./Foter";
 import { Modal } from "./Modal";
 import { TaskList } from "./TaskList";
 import { loadData, saveData } from "../utils/localStorageData";
+import { useUpdateEffect } from "../utils/useUpdateEffect";
 import "../styles/app.scss";
 
 export const App = () => {
   const [tasks, setTasks] = useState(() => loadData());
   const [openModal, setOpenmodal] = useState(() => false);
-  const isMounted = useRef(false);
 
-  useEffect(() => {
-    if (!isMounted.current) return () => (isMounted.current = !isMounted.current);
-    saveData(tasks);
-  }, [tasks]);
+  useUpdateEffect(() => saveData(tasks), [tasks]);
 
   const handleAddTask = (event) => {
     return createTask(event.name, event.desc);

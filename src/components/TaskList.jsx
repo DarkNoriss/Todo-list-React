@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
+import { useUpdateEffect } from "../utils/useUpdateEffect";
 import "../styles/task.scss";
 
 export const TaskList = ({ tasks, handleTaskDone }) => {
@@ -13,12 +14,8 @@ export const TaskList = ({ tasks, handleTaskDone }) => {
 
 const Task = ({ task, handleTaskDone }) => {
   const [getChecked, setChecked] = useState(() => task.done);
-  const isMounted = useRef(false);
 
-  useEffect(() => {
-    if (!isMounted.current) return () => (isMounted.current = !isMounted.current);
-    handleTaskDone(task.id, getChecked);
-  }, [getChecked]);
+  useUpdateEffect(() => handleTaskDone(task.id, getChecked), [getChecked]);
 
   const handleToggle = () => setChecked(!getChecked);
 
