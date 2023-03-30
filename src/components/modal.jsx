@@ -24,7 +24,6 @@ export const Modal = ({ onCreateTask, setOpenmodal }) => {
         </div>
         <form method="dialog" onSubmit={handleSubmit(onSubmit)}>
           <input placeholder="Name" type="text" required {...register("name")} />
-
           <textarea placeholder="Description" rows="4" cols="50" {...register("desc")} />
           <button>Create</button>
         </form>
