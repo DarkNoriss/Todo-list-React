@@ -10,7 +10,7 @@ import "../styles/app.scss";
 
 export const App = () => {
   const [tasks, setTasks] = useState(() => loadData());
-  const modalObj = useRef(() => null);
+  const [openModal, setOpenmodal] = useState(() => false);
   const isMounted = useRef(false);
 
   useEffect(() => {
@@ -58,9 +58,8 @@ export const App = () => {
     );
   };
 
-  const showModal = () => {
-    const modal = modalObj.current;
-    modal.show();
+  const handleOpenModal = () => {
+    return setOpenmodal(() => true);
   };
 
   return (
@@ -68,19 +67,23 @@ export const App = () => {
       <Header />
       <div className="app">
         <nav className="nav-bar">
-          <button onClick={showModal}>Create Task</button>
+          <button onClick={handleOpenModal}>Create Task</button>
           <button onClick={handleRandomTask}>Create random task</button>
           <button onClick={handleRemoveFinishedTasks}>Remove finished tasks</button>
           <button onClick={handleRemoveAllTasks}>Remove all tasks</button>
         </nav>
         <div className="tasks-container">
           <div className="tasks-list">
-            <TaskList tasks={tasks} handleTaskDone={handleTaskDone} />
+            <TaskList
+              tasks={tasks}
+              handleTaskDone={handleTaskDone}
+              handleCloseModal={setOpenmodal}
+            />
           </div>
         </div>
       </div>
       <Footer />
-      <Modal onCreateTask={handleAddTask} handleModal={modalObj} />
+      {openModal && <Modal onCreateTask={handleAddTask} setOpenmodal={setOpenmodal} />}
     </>
   );
 };
