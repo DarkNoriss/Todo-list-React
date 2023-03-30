@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/modal.scss";
 
-export const Modal = (props) => {
+export const Modal = ({ onCreateTask, handleModal }) => {
   const handleSubmit = (event) => {
     const form = event.target;
     const name = form.elements.name.value;
@@ -9,11 +9,11 @@ export const Modal = (props) => {
 
     form.reset();
 
-    props.onCreateTask({ name, desc });
+    onCreateTask({ name, desc });
   };
 
   return (
-    <dialog className="modal">
+    <dialog className="modal" ref={handleModal}>
       <form method="dialog" onSubmit={handleSubmit}>
         <p>Creating task</p>
         <input placeholder="Name" name="name" type="text" required />

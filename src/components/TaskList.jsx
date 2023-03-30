@@ -16,7 +16,7 @@ const Task = ({ task, handleTaskDone }) => {
   const init = useRef(() => true);
 
   useEffect(() => {
-    if (init) return !init;
+    if (init) return () => !init;
     handleTaskDone(task.id, checked);
   }, [checked]);
 

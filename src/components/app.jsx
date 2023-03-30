@@ -10,10 +10,11 @@ import "../styles/app.scss";
 
 export const App = () => {
   const [tasks, setTasks] = useState(() => loadData());
+  const modalObj = useRef(() => null);
   const init = useRef(() => true);
 
   useEffect(() => {
-    if (init) return !init;
+    if (init) return () => !init;
     saveData(tasks);
   }, [tasks]);
 
@@ -57,8 +58,8 @@ export const App = () => {
   };
 
   const showModal = () => {
-    const modal = document.querySelector(".modal");
-    modal.showModal();
+    const modal = modalObj.current;
+    modal.show();
   };
 
   return (
@@ -78,7 +79,7 @@ export const App = () => {
         </div>
       </div>
       <Footer />
-      <Modal onCreateTask={handleAddTask} />
+      <Modal onCreateTask={handleAddTask} handleModal={modalObj} />
     </>
   );
 };
