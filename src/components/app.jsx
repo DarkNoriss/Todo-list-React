@@ -61,11 +61,6 @@ export const App = () => {
     modal.showModal();
   };
 
-  // use for showTask button to show tasks array in console
-  // const showTasks = () => {
-  //   console.log(tasks);
-  // };
-
   return (
     <>
       <Header />
@@ -75,9 +70,6 @@ export const App = () => {
           <button onClick={handleRandomTask}>Create random task</button>
           <button onClick={handleRemoveFinishedTasks}>Remove finished tasks</button>
           <button onClick={handleRemoveAllTasks}>Remove all tasks</button>
-          {
-            // <button onClick={showTasks}>Show tasks</button> // used only to show tasks array in console
-          }
         </nav>
         <div className="tasks-container">
           <div className="tasks-list">
