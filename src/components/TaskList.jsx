@@ -12,15 +12,17 @@ export const TaskList = ({ tasks, handleTaskDone }) => {
 };
 
 const Task = ({ task, handleTaskDone }) => {
-  const [checked, setChecked] = useState(() => task.done);
-  const init = useRef(() => true);
+  const [getChecked, setChecked] = useState(() => task.done);
+  const isMounted = useRef(false);
+  const init = useRef(false);
 
   useEffect(() => {
-    if (init) return () => !init;
-    handleTaskDone(task.id, checked);
-  }, [checked]);
+    if (!isMounted.current) return () => (isMounted.current = !isMounted.current);
+    if (!init.current) return () => (init.current = !init.current);
+    handleTaskDone(task.id, getChecked);
+  }, [getChecked]);
 
-  const handleToggle = () => setChecked(!checked);
+  const handleToggle = () => setChecked(!getChecked);
 
   return (
     <div className="task" data-task-id={task.id}>
@@ -31,7 +33,7 @@ const Task = ({ task, handleTaskDone }) => {
           type="checkbox"
           id="checkbox"
           className="done-checkbox"
-          checked={checked}
+          checked={task.done}
           onChange={handleToggle}
         />
         <p>Done</p>
