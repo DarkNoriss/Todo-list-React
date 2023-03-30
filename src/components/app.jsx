@@ -12,11 +12,9 @@ export const App = () => {
   const [tasks, setTasks] = useState(() => loadData());
   const modalObj = useRef(() => null);
   const isMounted = useRef(false);
-  // const init = useRef(false);
 
   useEffect(() => {
     if (!isMounted.current) return () => (isMounted.current = !isMounted.current);
-    // if (!init.current) return () => (init.current = !init.current);
     saveData(tasks);
   }, [tasks]);
 
@@ -24,13 +22,14 @@ export const App = () => {
     return createTask(event.name, event.desc);
   };
 
-  // const handleRandomTask = () => {
-  //   const name = faker.lorem.words(faker.datatype.number({ min: 3, max: 7 }));
-  //   const capName = name.charAt(0).toUpperCase() + name.slice(1);
-  //   const desc = faker.lorem.paragraph(faker.datatype.number({ min: 1, max: 3 }));
-
-  //   return createTask(capName, desc);
-  // };
+  const handleRandomTask = () => {
+    import("@faker-js/faker").then(({ faker }) => {
+      const name = faker.lorem.words(faker.datatype.number({ min: 3, max: 7 }));
+      const capName = name.charAt(0).toUpperCase() + name.slice(1);
+      const desc = faker.lorem.paragraph(faker.datatype.number({ min: 1, max: 3 }));
+      return createTask(capName, desc);
+    });
+  };
 
   const createTask = (name, desc) => {
     const newTask = {
@@ -70,7 +69,7 @@ export const App = () => {
       <div className="app">
         <nav className="nav-bar">
           <button onClick={showModal}>Create Task</button>
-          {/* <button onClick={handleRandomTask}>Create random task</button> */}
+          <button onClick={handleRandomTask}>Create random task</button>
           <button onClick={handleRemoveFinishedTasks}>Remove finished tasks</button>
           <button onClick={handleRemoveAllTasks}>Remove all tasks</button>
         </nav>
