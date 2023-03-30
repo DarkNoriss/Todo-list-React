@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import "../styles/task.scss";
 
 export const TaskList = ({ tasks, handleTaskDone }) => {
-  const createTask = tasks.map((task) => {
+  const sortedTasks = tasks.sort((a) => (a.done ? 1 : -1));
+
+  const createTask = sortedTasks.map((task) => {
     return <Task key={task.id} task={task} handleTaskDone={handleTaskDone} />;
   });
 

@@ -11,6 +11,7 @@ export const Modal = (props) => {
 
     props.onCreateTask({ name, desc });
   };
+
   return (
     <dialog className="modal">
       <form method="dialog" onSubmit={handleSubmit}>
