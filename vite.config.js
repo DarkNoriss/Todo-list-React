@@ -8,4 +8,7 @@ export default defineConfig({
   server: {
     open: "http://localhost:5173/",
   },
+  build: {
+    outDir: "docs",
+  },
 });
