@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import uuidv4 from "uuid/v4";
-// import { faker } from "@faker-js/faker";
+import { v4 as uuidv4 } from "uuid";
 import { Header } from "./Header";
 import { Footer } from "./Foter";
 import { Modal } from "./Modal";
