@@ -12,11 +12,11 @@ export const App = () => {
   const [tasks, setTasks] = useState(() => loadData());
   const modalObj = useRef(() => null);
   const isMounted = useRef(false);
-  const init = useRef(false);
+  // const init = useRef(false);
 
   useEffect(() => {
     if (!isMounted.current) return () => (isMounted.current = !isMounted.current);
-    if (!init.current) return () => (init.current = !init.current);
+    // if (!init.current) return () => (init.current = !init.current);
     saveData(tasks);
   }, [tasks]);
 

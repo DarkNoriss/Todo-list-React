@@ -15,11 +15,11 @@ export const TaskList = ({ tasks, handleTaskDone }) => {
 const Task = ({ task, handleTaskDone }) => {
   const [getChecked, setChecked] = useState(() => task.done);
   const isMounted = useRef(false);
-  const init = useRef(false);
+  // const init = useRef(false);
 
   useEffect(() => {
     if (!isMounted.current) return () => (isMounted.current = !isMounted.current);
-    if (!init.current) return () => (init.current = !init.current);
+    // if (!init.current) return () => (init.current = !init.current);
     console.log("saving change...");
     handleTaskDone(task.id, getChecked);
   }, [getChecked]);
