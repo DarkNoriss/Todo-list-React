@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import uuidv4 from "uuid/v4";
-import { faker } from "@faker-js/faker";
+// import { faker } from "@faker-js/faker";
 import { Header } from "./Header";
 import { Footer } from "./Foter";
 import { Modal } from "./Modal";
@@ -24,13 +24,13 @@ export const App = () => {
     return createTask(event.name, event.desc);
   };
 
-  const handleRandomTask = () => {
-    const name = faker.lorem.words(faker.datatype.number({ min: 3, max: 7 }));
-    const capName = name.charAt(0).toUpperCase() + name.slice(1);
-    const desc = faker.lorem.paragraph(faker.datatype.number({ min: 1, max: 3 }));
+  // const handleRandomTask = () => {
+  //   const name = faker.lorem.words(faker.datatype.number({ min: 3, max: 7 }));
+  //   const capName = name.charAt(0).toUpperCase() + name.slice(1);
+  //   const desc = faker.lorem.paragraph(faker.datatype.number({ min: 1, max: 3 }));
 
-    return createTask(capName, desc);
-  };
+  //   return createTask(capName, desc);
+  // };
 
   const createTask = (name, desc) => {
     const newTask = {
@@ -70,7 +70,7 @@ export const App = () => {
       <div className="app">
         <nav className="nav-bar">
           <button onClick={showModal}>Create Task</button>
-          <button onClick={handleRandomTask}>Create random task</button>
+          {/* <button onClick={handleRandomTask}>Create random task</button> */}
           <button onClick={handleRemoveFinishedTasks}>Remove finished tasks</button>
           <button onClick={handleRemoveAllTasks}>Remove all tasks</button>
         </nav>
