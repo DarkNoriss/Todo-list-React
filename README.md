@@ -1,5 +1,5 @@
 # Todo-list-React
 
-Remake of my old todo-list app using React
+my first app using React + SCSS
 
 <a href = "https://darknoriss.github.io/Todo-list-React/"/> DEMO </a>
