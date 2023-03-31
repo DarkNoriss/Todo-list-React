@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Header } from "./Header";
-import { Footer } from "./Foter";
+import { Footer } from "./Footer";
 import { Modal } from "./Modal";
 import { TaskList } from "./TaskList";
 import { loadData, saveData } from "../utils/localStorageData";
